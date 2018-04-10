@@ -28,81 +28,79 @@
             <!-- Navigation -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <!-- Search -->
-              <div class="col-md-6 offset-md-3">
-                <form class="form-inline my-2 my-sm-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search product" aria-label="Search">
-                  <button class="btn btn-sm btn-outline-light" type="submit">Search</button>
-                </form>
+              <div class="col-md-3 offset-md-4">
+                <input class="form-control form-control-sm" type="text" placeholder="Search Product">
               </div>
               <!-- Nav Button -->
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-                    <span class="fa fa-shopping-cart">
+                <li>
+                  <button type="button" class="btn btn-outline-light mr-2" data-toggle="modal" data-target="#exampleModalCenter">
+                    <span class="fa fa-shopping-cart"></span>
                      Cart
                   </button>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+                <li>
+                  <button type="button" class="btn btn-outline-light mr-3" data-toggle="modal">
+                    <span class="fa fa-user"></span>
+                    Login
+                  </button>
                 </li>
               </ul>
-            </div>
-            <!-- Modal Cart -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">User Cart</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <table class="table">
-                      <thead class="thead-dark">
-                        <tr>
-                          <th scope="col"></th>
-                          <th scope="col">Product Name</th>
-                          <th scope="col">Price</th>
-                          <th scope="col">Quantity</th>
-                          <th scope="col">Total Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="item in cart">
-                          <td><img v-bind:src="item.image" style="height: 30px"></td>
-                          <td>{{ item.name }}</td>
-                          <td>{{ toRp(item.price) }}</td>
-                          <td>{{ item.qty }}</td>
-                          <td>{{ toRp(subTotal(item.price, item.qty)) }}</td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td>
-                            <p>Total price: </p>
-                          </td>
-                          <td>{{ grandTotal }}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Check Out</button>
-                  </div>
-                </div>
-              </div>
             </div>
           </nav>
         </div>
       </div>
-  
+      
+      <!-- Modal Cart -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">User Cart</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="item in cart">
+                    <td><img v-bind:src="item.image" style="height: 30px"></td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ toRp(item.price) }}</td>
+                    <td>{{ item.qty }}</td>
+                    <td>{{ toRp(subTotal(item.price, item.qty)) }}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <p>Total price: </p>
+                    </td>
+                    <td>{{ grandTotal }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Check Out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Header -->
-      <div class="row intro">
+      <div class="row">
         <!-- Carousel -->
-        <div class="col-md-10 col-xs-12">
+        <div class="col-md-7 offset-md-2 col-xs-12">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -164,34 +162,12 @@
       <!-- Content -->
       <div class="row list-item">
         <!-- List of Item -->
-          <div class="card" v-for="item in items">
-            <img class="card-img-top" v-bind:src="item.image" v-bind:alt="item.name">
-            <p class="product-name">{{ item.name }}</p>
-            <p class="price">{{ toRp(item.price) }}</p>
-            <!-- <p class="price">{{ item.price }}</p> -->
-            <button v-on:click="addToCart(item)" type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Add to Cart</button>
-            
-            <!-- <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Add to Cart</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Are you sure want to add this product?</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Continue</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            
-          </div>
+        <div class="card" v-for="item in items">
+          <img class="card-img-top" v-bind:src="item.image" v-bind:alt="item.name">
+          <p class="product-name">{{ item.name }}</p>
+          <p class="price">{{ toRp(item.price) }}</p>
+          <button v-on:click="addToCart(item)" type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Add to Cart</button>
+        </div>
       </div>
   
       <!-- Footer -->

@@ -2,15 +2,25 @@ new Vue ({
   el: '#app',
   data: {
     message: 'Hello Vue!',
+    categories: [
+      'Whey Protein',
+      'Gainer Milk',
+      'BCAA',
+      'Creatine',
+      'Fat Burner',
+      'Pre-workout',
+      'Post-workout',
+      'Accessories'
+    ],
     items: [
       {
         id: 1,
-        name: 'Produk Bagus 1',
+        name: 'Healing Salve',
         price: 50000,
         image: './src/img/product-placeholder.jpg'
       },{
         id: 2,
-        name: 'Produk Biasa 2',
+        name: 'TP Scroll',
         price: 32000,
         image: './src/img/product-placeholder.jpg'
       },{
@@ -49,12 +59,47 @@ new Vue ({
       }
     },
 
+    decreaseQty(item) {
+      console.log('(-) Qty')
+      for (let i in this.cart) {
+        if (this.cart[i].id == item.id) {
+          let qty = this.cart[i].qty - 1
+          if (qty < 1) {
+            qty = 1
+          }
+          this.cart[i].qty = qty
+          let newItem = this.cart[i]
+          this.cart.splice(i, 1, newItem)
+        }
+      }
+    },
+
+    increaseQty(item) {
+      console.log('(+) Qty')
+      for (let i in this.cart) {
+        if (this.cart[i].id == item.id) {
+          let qty = this.cart[i].qty + 1
+          this.cart[i].qty = qty
+          let newItem = this.cart[i]
+          this.cart.splice(i, 1, newItem)
+        }
+      }
+    },
+
+    deleteFromCart(item) {
+      for (let i in this.cart) {
+        if (this.cart[i].id == item.id) {
+          this.cart.splice(i, 1)
+        }
+      }
+    },
+
     toRp(price) {
-      return price = `Rp. ${price.toLocaleString()}`
+      return price = `IDR. ${price.toLocaleString()}`
     },
 
     subTotal(price, qty) {
-      return price * qty;
+      return this.toRp(price * qty);
     }
   },
   computed: {

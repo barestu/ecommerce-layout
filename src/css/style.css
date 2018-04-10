@@ -26,3 +26,10 @@ a {
   border: 2px solid #fff;
   padding: 0 5px;
 }
+
+.notify {
+  position: relative;
+  font-size: 15px;
+  top: -18px;
+  left: 92px;
+}

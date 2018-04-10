@@ -43,13 +43,16 @@
                 <!-- Nav Button -->
                 <ul class="navbar-nav ml-auto">
                   <li class="py-2">
-                    <button type="button" class="btn btn-outline-light mr-2" data-toggle="modal" data-target="#exampleModalCenter">
+                    <template v-if="cart.length > 0">
+                      <span class="badge badge-pill badge-danger notify">{{ cart.length }}</span>
+                    </template>
+                    <button type="button" class="btn btn-outline-light mr-1" data-toggle="modal" data-target="#exampleModalCenter">
                       <span class="fa fa-shopping-cart"></span>
                         Cart
                     </button>
                   </li>
                   <li class="py-2">
-                    <button type="button" class="btn btn-outline-light mr-4" data-toggle="modal">
+                    <button type="button" class="btn btn-outline-light ml-3 mr-3" data-toggle="modal">
                       <span class="fa fa-user"></span>
                       Login
                     </button>

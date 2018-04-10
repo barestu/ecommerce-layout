@@ -16,27 +16,52 @@ new Vue ({
       {
         id: 1,
         name: 'Healing Salve',
-        price: 50000,
+        price: 100,
         image: './src/img/product-placeholder.jpg'
       },{
         id: 2,
         name: 'TP Scroll',
-        price: 32000,
+        price: 150,
         image: './src/img/product-placeholder.jpg'
       },{
         id: 3,
         name: 'Holy Grail',
-        price: 120000,
+        price: 999000,
         image: './src/img/product-placeholder.jpg'
       },{
         id: 4,
         name: 'Radiance',
-        price: 38000,
+        price: 3800,
         image: './src/img/product-placeholder.jpg'
       },{
         id: 5,
         name: 'Iron Talon',
-        price: 3000,
+        price: 300,
+        image: './src/img/product-placeholder.jpg'  
+      },{
+        id: 6,
+        name: 'Platemail',
+        price: 1400,
+        image: './src/img/product-placeholder.jpg'  
+      },{
+        id: 7,
+        name: 'Mango',
+        price: 150,
+        image: './src/img/product-placeholder.jpg'  
+      },{
+        id: 8,
+        name: 'Demon Edge',
+        price: 2200,
+        image: './src/img/product-placeholder.jpg'  
+      },{
+        id: 9,
+        name: 'Hand of Midas',
+        price: 1950,
+        image: './src/img/product-placeholder.jpg'  
+      },{
+        id: 10,
+        name: 'Aghanim Scepter',
+        price: 4200,
         image: './src/img/product-placeholder.jpg'  
       }
     ],
@@ -95,13 +120,14 @@ new Vue ({
     },
 
     toRp(price) {
-      return price = `IDR. ${price.toLocaleString()}`
+      return price = `$. ${price.toLocaleString()}`
     },
 
     subTotal(price, qty) {
       return this.toRp(price * qty);
     }
   },
+
   computed: {
     grandTotal() {
       let total = 0;

@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
     <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="/src/css/style.css">
     <title>Amazonk.</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
-
+  
   <body>
     
     <div id="app">
@@ -48,7 +47,7 @@
                     </template>
                     <button type="button" class="btn btn-outline-light mr-1" data-toggle="modal" data-target="#exampleModalCenter">
                       <span class="fa fa-shopping-cart"></span>
-                        Cart
+                      Cart
                     </button>
                   </li>
                   <li class="py-2">
@@ -61,7 +60,7 @@
               </div>
             </div>
           </nav>
-  
+          
         </div>
       </div>
       
@@ -100,11 +99,12 @@
           <!-- Product Category -->
           <div class="col-lg-3 col-xs-12 py-3 px-4 border">
             <div><h4>Categories >></h4></div>
-            <div class="row d-flex flex-row p-0 m-0">
+            <!-- <div class="row d-flex flex-row p-0 m-0">
               <div class="py-0 col-md-12 col-sm-6 col-xs-6 border" v-for="category in categories">
                 <a href="#">{{ category }}</a>
               </div>
-            </div>
+            </div> -->
+            <item-categories :categories="categories"></item-categories>
           </div>
           <!-- Products -->
           <div class="row py-3">
@@ -126,7 +126,7 @@
           </div>
         </div>
       </div>
-
+      
       <!-- Modal Cart -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -184,7 +184,7 @@
           </div>
         </div>
       </div>
-
+      
       <!-- Footer -->
       <div class="row mt-5 pt-5">
         <div class="col-12 py-4 mx-auto bg-primary text-white">
@@ -193,12 +193,15 @@
           </footer>
         </div>
       </div>
-
+      
     </div>
-
-    <script src="./src/js/Vue.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/src/js/components/item-list.js"></script>
+    <script src="/src/js/components/item-categories.js"></script>
+    <script src="/src/js/appVue.js"></script>
   </body>
-</html>
+  </html>

@@ -9,6 +9,7 @@ const db_pass = process.env.DB_PASS
 const port = process.env.PORT || 3000
 
 const userRoute = require('./routes/users')
+const itemRoute = require('./routes/items')
 
 mongoose.connect(`mongodb://${db_user}:${db_pass}@ds147905.mlab.com:47905/ecommerce`)
 const db = mongoose.connection
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/user', userRoute)
+app.use('/item', itemRoute)
 
 app.listen(port, function() {
   console.log('Listening on port', port)

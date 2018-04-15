@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const secret = process.env.SECRET
 
 module.exports = {
-  register: function(req, res) {
+  register: function (req, res) {
     let newUser = new User ({
       username: req.body.username,
       password: req.body.password,
@@ -26,7 +26,7 @@ module.exports = {
     })
   },
 
-  login: function(req, res) {
+  login: function (req, res) {
     User.findOne({
       username: req.body.username
     })

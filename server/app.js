@@ -4,8 +4,6 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
 const cors = require('cors')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
 const db_user = process.env.DB_USER
 const db_pass = process.env.DB_PASS
 const port = process.env.PORT || 3000
@@ -24,7 +22,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Ecommerce API Server')
 })
 

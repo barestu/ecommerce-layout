@@ -1,5 +1,7 @@
 const User = require('../models/User')
-const key = process.env.KEY
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const secret = process.env.SECRET
 
 module.exports = {
   register: function(req, res) {
@@ -34,7 +36,7 @@ module.exports = {
       if (checkLogin == true) {
         let token = jwt.sign({
           username: user.username
-        }, key)
+        }, secret)
   
         res.status(200).send({
           message: 'Login success',

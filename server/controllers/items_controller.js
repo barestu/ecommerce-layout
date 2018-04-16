@@ -40,5 +40,12 @@ module.exports = {
         error: err
       })
     })
+  },
+
+  uploadImage: function (req, res) {
+    res.status(200).send({
+      message: 'Upload to storage success',
+      link: req.file.cloudStoragePublicUrl
+    })
   }
 }

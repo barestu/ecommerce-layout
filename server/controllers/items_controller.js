@@ -18,7 +18,6 @@ module.exports = {
   },
 
   add: function (req, res) {
-    
     let newItem = new Item ({
       item_name: req.body.item_name,
       item_price: req.body.item_price,

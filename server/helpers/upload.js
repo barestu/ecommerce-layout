@@ -20,7 +20,7 @@ const sendUploadToGCS = function(req, res, next){
     } else {
         let gcsfilename = new Date().toISOString() + req.file.originalname;
         let file = bucket.file(gcsfilename);
-
+        console.log(bucket)
         const stream = file.createWriteStream({
             metadata: {
                 contentType: req.file.mimetype
@@ -34,6 +34,7 @@ const sendUploadToGCS = function(req, res, next){
         
         stream.on('finish', () => {
             req.file.cloudStorageObject = gcsfilename
+            file.move(`src/img/${req.file.cloudStorageObject}`)
             file.makePublic().then(() => {
                 req.file.cloudStoragePublicUrl = getPublicUrl(gcsfilename)
                 next()

@@ -35,7 +35,9 @@ module.exports = {
 
       if (checkLogin == true) {
         let token = jwt.sign({
-          token: user._id
+          token: user._id,
+          username: user.username,
+          role: user.role
         }, secret)
   
         res.status(200).send({

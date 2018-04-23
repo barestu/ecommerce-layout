@@ -12,7 +12,7 @@
         <!-- Search -->
         <div class="col-md-6 offset-md-2 py-2">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Search Product" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" placeholder="Search item" aria-label="Search Product" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <button class="btn btn-outline-light" type="button"><span class="fa fa-search"></span></button>
             </div>
@@ -21,8 +21,8 @@
         <!-- Nav Button -->
         <ul class="navbar-nav ml-auto">
           <li class="py-2">
-            <template>
-              <span class="badge badge-pill badge-danger notify"></span>
+            <template v-if="cart.length > 0">
+              <span class="badge badge-pill badge-danger notify">{{ cart.length }}</span>
             </template>
             <button type="button" class="btn btn-outline-light mr-1" data-toggle="modal" data-target="#exampleModalCenter">
               <span class="fa fa-shopping-cart"></span>
@@ -152,14 +152,12 @@
 <script>
 // import swal from 'sweetalert'
 import ItemCard from '@/components/ItemCard.vue'
-import CartItem from '@/components/CartItem.vue'
 import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'home',
   components: {
-    ItemCard,
-    CartItem
+    ItemCard
   },
   data () {
     return {
@@ -200,6 +198,14 @@ export default {
   mounted () {
     this.getItems()
   }
-
 }
 </script>
+
+<style>
+.notify {
+  position: relative;
+  font-size: 15px;
+  top: -18px;
+  left: 92px;
+}
+</style>

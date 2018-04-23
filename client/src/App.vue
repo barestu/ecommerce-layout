@@ -12,4 +12,14 @@ html,body {
 body {
   font-family: 'Raleway', sans-serif;
 }
+
+.bg-primary {
+  background-color: #013243!important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #96281B;
+  border-color: #96281B;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid border h-100">
+  <div class="container-fluid h-100">
     <div class="row justify-content-center h-100">
-      <div class="col-lg-5 col-md-6 col-sm-8 col-xs-8 px-3 text-center my-auto">
+      <div class="col-lg-3 col-md-6 col-sm-7 col-xs-7 px-3 text-center my-auto">
         <h3 class="text-light m-4 font-weight-bold">Amazonk. <span class="font-weight-normal">| Admin Page</span></h3>
         <form>
           <div class="form-signin">
@@ -59,6 +59,6 @@ export default {
 
 <style scoped>
 .container-fluid {
-  background-color: slateblue;
+  background-color: #013243;
 }
 </style>

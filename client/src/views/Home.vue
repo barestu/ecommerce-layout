@@ -96,7 +96,7 @@
       </div>
     </nav>
 
-    <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="col-lg-9 col-md-10 mx-auto">
       <!-- Content -->
       <div class="row mx-0">
           <!-- Intro Carousel -->
@@ -146,11 +146,19 @@
         <ItemCard v-for="(item, index) in items" :item="item" :key="index" />
       </div>
     </div>
+
+    <!-- Footer -->
+    <div class="row mt-5 pt-5 mx-0">
+      <div class="col-12 py-4 mx-auto bg-primary text-white">
+        <footer class="footer">
+          <p class="text-center">Created by Fandy Barestu 2018</p>
+        </footer>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// import swal from 'sweetalert'
 import ItemCard from '@/components/ItemCard.vue'
 import { mapState, mapMutations, mapActions } from 'vuex'
 
